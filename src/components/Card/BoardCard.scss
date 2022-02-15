@@ -1,0 +1,14 @@
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid grey;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.card--active {
+  background-color: lightgreen;
+  border-color: green;
+  border-width: 4px;
+}

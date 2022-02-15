@@ -1,0 +1,12 @@
+.board__container {
+  border: 5px solid black;
+  width: 700px;
+  height: 700px;
+  display: grid;
+  grid-template: auto / 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  padding: 20px;
+
+  .board-card {
+  }
+}
