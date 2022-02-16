@@ -8,22 +8,22 @@ const TEST_A = [
     fill: 'full',
     color: 'purple',
     cardNumber: 3,
-    id: 'triangle_full_green_1'
+    id: 'triangle_full_green_1',
   },
   {
     shape: 'square',
     fill: 'lined',
     color: 'green',
     cardNumber: 1,
-    id: 'square_lined_green_1'
+    id: 'square_lined_green_1',
   },
   {
     shape: 'circle',
     fill: 'empty',
     color: 'red',
     cardNumber: 2,
-    id: 'circle_empty_green_1'
-  }
+    id: 'circle_empty_green_1',
+  },
 ] as unknown as Card[];
 
 // TODO: write Unit Tests

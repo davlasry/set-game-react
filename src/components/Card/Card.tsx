@@ -30,7 +30,7 @@ export default function BoardCard({ toggleCard, card, isActive }: CardProps) {
       {/*</div>*/}
 
       <img
-        className='card__image'
+        className="card__image"
         src={`/set-cards-images/${card.id}.png`}
         alt={`card-${card.id}`}
       />

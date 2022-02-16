@@ -8,22 +8,22 @@ const SAME_COLOR_DIFFERENT_SHADING_DIFFERENT_SHAPE_DIFFERENT_NUMBER: Card[] = [
     shading: 'full',
     shape: 'oval',
     cardNumber: 1,
-    id: generateCardId('oval', 'full', 'green', 1)
+    id: generateCardId('oval', 'full', 'green', 1),
   },
   {
     color: 'green',
     shape: 'squiggle',
     shading: 'lined',
     cardNumber: 2,
-    id: generateCardId('squiggle', 'lined', 'green', 2)
+    id: generateCardId('squiggle', 'lined', 'green', 2),
   },
   {
     color: 'green',
     shape: 'diamond',
     shading: 'empty',
     cardNumber: 3,
-    id: generateCardId('diamond', 'empty', 'green', 3)
-  }
+    id: generateCardId('diamond', 'empty', 'green', 3),
+  },
 ];
 
 const DIFFERENT_COLOR_DIFFERENT_SHADING_DIFFERENT_SHAPE_DIFFERENT_NUMBER: Card[] =
@@ -33,22 +33,22 @@ const DIFFERENT_COLOR_DIFFERENT_SHADING_DIFFERENT_SHAPE_DIFFERENT_NUMBER: Card[]
       shading: 'full',
       shape: 'oval',
       cardNumber: 1,
-      id: generateCardId('oval', 'full', 'red', 1)
+      id: generateCardId('oval', 'full', 'red', 1),
     },
     {
       color: 'green',
       shading: 'lined',
       shape: 'squiggle',
       cardNumber: 2,
-      id: generateCardId('squiggle', 'lined', 'green', 2)
+      id: generateCardId('squiggle', 'lined', 'green', 2),
     },
     {
       color: 'purple',
       shading: 'empty',
       shape: 'diamond',
       cardNumber: 3,
-      id: generateCardId('diamond', 'empty', 'purple', 3)
-    }
+      id: generateCardId('diamond', 'empty', 'purple', 3),
+    },
   ];
 
 const SAME_COLOR_SAME_SHADING_DIFFERENT_SHAPE_DIFFERENT_NUMBER: Card[] = [
@@ -57,22 +57,22 @@ const SAME_COLOR_SAME_SHADING_DIFFERENT_SHAPE_DIFFERENT_NUMBER: Card[] = [
     shading: 'full',
     shape: 'oval',
     cardNumber: 1,
-    id: generateCardId('oval', 'full', 'green', 1)
+    id: generateCardId('oval', 'full', 'green', 1),
   },
   {
     color: 'green',
     shading: 'full',
     shape: 'squiggle',
     cardNumber: 2,
-    id: generateCardId('squiggle', 'full', 'green', 2)
+    id: generateCardId('squiggle', 'full', 'green', 2),
   },
   {
     color: 'green',
     shading: 'full',
     shape: 'diamond',
     cardNumber: 3,
-    id: generateCardId('diamond', 'full', 'green', 3)
-  }
+    id: generateCardId('diamond', 'full', 'green', 3),
+  },
 ];
 
 const SAME_COLOR_SAME_SHADING_SAME_SHAPE_DIFFERENT_NUMBER: Card[] = [
@@ -81,22 +81,22 @@ const SAME_COLOR_SAME_SHADING_SAME_SHAPE_DIFFERENT_NUMBER: Card[] = [
     shading: 'full',
     shape: 'oval',
     cardNumber: 1,
-    id: generateCardId('oval', 'full', 'green', 1)
+    id: generateCardId('oval', 'full', 'green', 1),
   },
   {
     color: 'green',
     shading: 'full',
     shape: 'oval',
     cardNumber: 2,
-    id: generateCardId('oval', 'full', 'green', 2)
+    id: generateCardId('oval', 'full', 'green', 2),
   },
   {
     color: 'green',
     shading: 'full',
     shape: 'oval',
     cardNumber: 3,
-    id: generateCardId('oval', 'full', 'green', 3)
-  }
+    id: generateCardId('oval', 'full', 'green', 3),
+  },
 ];
 
 const MIXED_COLOR_SAME_SHADING_SAME_SHAPE_DIFFERENT_NUMBER: Card[] = [
@@ -105,22 +105,22 @@ const MIXED_COLOR_SAME_SHADING_SAME_SHAPE_DIFFERENT_NUMBER: Card[] = [
     shading: 'full',
     shape: 'oval',
     cardNumber: 1,
-    id: generateCardId('oval', 'full', 'green', 1)
+    id: generateCardId('oval', 'full', 'green', 1),
   },
   {
     color: 'green',
     shading: 'full',
     shape: 'oval',
     cardNumber: 2,
-    id: generateCardId('oval', 'full', 'green', 2)
+    id: generateCardId('oval', 'full', 'green', 2),
   },
   {
     color: 'red',
     shading: 'full',
     shape: 'oval',
     cardNumber: 3,
-    id: generateCardId('oval', 'full', 'red', 3)
-  }
+    id: generateCardId('oval', 'full', 'red', 3),
+  },
 ];
 
 const MIXED_COLOR_MIXED_SHADING_SAME_SHAPE_DIFFERENT_NUMBER: Card[] = [
@@ -129,22 +129,22 @@ const MIXED_COLOR_MIXED_SHADING_SAME_SHAPE_DIFFERENT_NUMBER: Card[] = [
     shading: 'full',
     shape: 'oval',
     cardNumber: 1,
-    id: generateCardId('oval', 'full', 'green', 1)
+    id: generateCardId('oval', 'full', 'green', 1),
   },
   {
     color: 'green',
     shading: 'lined',
     shape: 'oval',
     cardNumber: 2,
-    id: generateCardId('oval', 'lined', 'green', 2)
+    id: generateCardId('oval', 'lined', 'green', 2),
   },
   {
     color: 'red',
     shading: 'full',
     shape: 'oval',
     cardNumber: 3,
-    id: generateCardId('oval', 'full', 'red', 3)
-  }
+    id: generateCardId('oval', 'full', 'red', 3),
+  },
 ];
 
 const MIXED_COLOR_MIXED_SHADING_MIXED_SHAPE_DIFFERENT_NUMBER: Card[] = [
@@ -153,22 +153,22 @@ const MIXED_COLOR_MIXED_SHADING_MIXED_SHAPE_DIFFERENT_NUMBER: Card[] = [
     shading: 'full',
     shape: 'oval',
     cardNumber: 1,
-    id: generateCardId('oval', 'full', 'green', 1)
+    id: generateCardId('oval', 'full', 'green', 1),
   },
   {
     color: 'green',
     shading: 'lined',
     shape: 'squiggle',
     cardNumber: 2,
-    id: generateCardId('oval', 'full', 'green', 2)
+    id: generateCardId('oval', 'full', 'green', 2),
   },
   {
     color: 'red',
     shading: 'full',
     shape: 'oval',
     cardNumber: 3,
-    id: generateCardId('oval', 'full', 'red', 3)
-  }
+    id: generateCardId('oval', 'full', 'red', 3),
+  },
 ];
 
 const MIXED_COLOR_MIXED_SHADING_MIXED_SHAPE_MIXED_NUMBER: Card[] = [
@@ -177,22 +177,22 @@ const MIXED_COLOR_MIXED_SHADING_MIXED_SHAPE_MIXED_NUMBER: Card[] = [
     shading: 'full',
     shape: 'oval',
     cardNumber: 1,
-    id: generateCardId('oval', 'full', 'green', 1)
+    id: generateCardId('oval', 'full', 'green', 1),
   },
   {
     color: 'green',
     shading: 'lined',
     shape: 'squiggle',
     cardNumber: 2,
-    id: generateCardId('oval', 'full', 'green', 2)
+    id: generateCardId('oval', 'full', 'green', 2),
   },
   {
     color: 'red',
     shading: 'full',
     shape: 'oval',
     cardNumber: 2,
-    id: generateCardId('oval', 'full', 'red', 2)
-  }
+    id: generateCardId('oval', 'full', 'red', 2),
+  },
 ];
 
 describe('is a set', () => {

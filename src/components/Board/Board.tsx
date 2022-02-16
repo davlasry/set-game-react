@@ -23,7 +23,7 @@ type Action =
 const initialState: State = {
   activeCards: [],
   deck: [],
-  board: []
+  board: [],
 };
 
 // TODO: check if good practice to take it out to component file
@@ -37,7 +37,7 @@ function reducer(state: State, action: Action): State {
         ...state,
         board: newBoard,
         deck: newDeck,
-        activeCards: []
+        activeCards: [],
       };
     }
     case 'setClick': {
@@ -63,7 +63,7 @@ function reducer(state: State, action: Action): State {
           ...state,
           activeCards: [],
           board,
-          deck: updatedDeckCards
+          deck: updatedDeckCards,
         };
       } else {
         return { ...state, activeCards: [] };
@@ -187,7 +187,7 @@ export const Board = () => {
     <>
       <div>Cards in deck: {state.deck.length}</div>
 
-      <div className='board__actions'>
+      <div className="board__actions">
         <button onClick={() => dispatch({ type: 'startNewGame' })}>
           New Game
         </button>
@@ -199,7 +199,7 @@ export const Board = () => {
         </button>
       </div>
 
-      <div className='board__container'>
+      <div className="board__container">
         {[...state.board].map((card) => (
           <BoardCard
             toggleCard={() =>

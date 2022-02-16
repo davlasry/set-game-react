@@ -28,11 +28,11 @@ function getSingleDeckCards() {
               fill: shading,
               color,
               cardNumber,
-              id: `${shape}_${shading}_${color}_${cardNumber}`
+              id: `${shape}_${shading}_${color}_${cardNumber}`,
             } as unknown as Card;
           });
         });
-      })
+      }),
     ];
   }, []).flat();
 }

@@ -27,20 +27,15 @@ export const BoardUseReducer = () => {
   //   }
   // }, [boardCards]);
 
-  function startNewGame(): void {
-  }
+  function startNewGame(): void {}
 
-  function dealNewBoard(): void {
-  }
+  function dealNewBoard(): void {}
 
-  function removeCardFromBoard(cardsToRemove: Card[]): void {
-  }
+  function removeCardFromBoard(cardsToRemove: Card[]): void {}
 
-  function toggleCard(cardId: string): void {
-  }
+  function toggleCard(cardId: string): void {}
 
-  function handleSetClick(): void {
-  }
+  function handleSetClick(): void {}
 
   // TODO: check if should use useMemo or useCallback instead
   const isCardActive = (cardId: string): boolean => {
@@ -51,12 +46,12 @@ export const BoardUseReducer = () => {
     <>
       <div>Cards in deck: {deckCards.length}</div>
 
-      <div className='board__actions'>
+      <div className="board__actions">
         <button onClick={startNewGame}>New Game</button>
         <button onClick={handleSetClick}>Set</button>
       </div>
 
-      <div className='board__container'>
+      <div className="board__container">
         {[...boardCards].map((card) => (
           <BoardCard
             toggleCard={toggleCard}
