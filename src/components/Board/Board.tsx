@@ -5,6 +5,11 @@ import { getNewCards } from '../../utils/cardsFactory';
 import { Card } from '../../types/card';
 import { checkIfSet } from '../../utils/checkIfSet';
 
+type Props = {
+  setCalledSet: Function;
+  calledSet: boolean;
+};
+
 type State = {
   activeCards: Card[];
   deck: Card[];
@@ -100,7 +105,7 @@ function reducer(state: State, action: Action): State {
   }
 }
 
-export const Board = () => {
+export const Board = ({ setCalledSet }: Props) => {
   // const [activeCards, setActiveCards] = useState<any[]>([]);
   // const [deckCards, setDeckCards] = useState<any[]>([]);
   // const [boardCards, setBoardCards] = useState<Card[]>([]);
@@ -174,7 +179,7 @@ export const Board = () => {
     //   removeCardFromBoard(activeCards);
     //   addCardsToBoard(3);
     // }
-
+    setCalledSet(true);
     dispatch({ type: 'setClick' });
   }
 
