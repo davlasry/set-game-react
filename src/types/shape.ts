@@ -1,1 +1,1 @@
-export type Shape = 'circle' | 'square' | 'triangle';
+export type Shape = 'oval' | 'squiggle' | 'diamond';

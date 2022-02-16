@@ -1,11 +1,12 @@
 import { Shape } from './shape';
-import { types } from 'sass';
-import { Fill } from './fill';
-import Color = types.Color;
+import { Shading } from './shading';
+import { CardNumber } from './card-number';
+import { CardColor } from './cardColor';
 
 export interface Card {
   shape: Shape;
-  color: Color;
-  fill: Fill;
+  color: CardColor;
+  shading: Shading;
+  cardNumber: CardNumber;
   id: string;
 }
