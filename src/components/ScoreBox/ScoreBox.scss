@@ -1,0 +1,12 @@
+.score-box {
+  font-size: 25px;
+}
+
+.history-row {
+  display: flex;
+
+  .history-row__cards {
+    display: flex;
+    flex: 1;
+  }
+}

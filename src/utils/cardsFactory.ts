@@ -25,7 +25,7 @@ function getSingleDeckCards() {
           return CARD_NUMBERS.map((cardNumber: CardNumber) => {
             return {
               shape,
-              fill: shading,
+              shading,
               color,
               cardNumber,
               id: `${shape}_${shading}_${color}_${cardNumber}`,

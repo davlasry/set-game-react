@@ -1,17 +1,31 @@
 import './Card.scss';
 import { Card } from '../../types/card';
+import { useContext, useMemo } from 'react';
+import { GameDispatchContext, GameStateContext } from '../../GameProvider';
 
 type CardProps = {
-  toggleCard: (id: string) => void;
-  isActive: boolean;
   card: Card;
 };
 
-export default function BoardCard({ toggleCard, card, isActive }: CardProps) {
+export default function BoardCard({ card }: CardProps) {
+  const { userCalledSet, activeCards } = useContext(GameStateContext);
+  const dispatch = useContext(GameDispatchContext);
+
+  function toggleCard() {
+    if (userCalledSet && activeCards.length < 3) {
+      dispatch({ type: 'toggleCard', payload: { card } });
+    }
+  }
+
+  const isActive = useMemo((): boolean => {
+    return activeCards.some((c) => c.id === card.id);
+  }, [card, activeCards]);
+
   return (
     <div
       className={`card ${isActive ? 'card--active' : ' '}`}
-      onClick={() => toggleCard(card.id)}
+      style={{ cursor: userCalledSet ? 'pointer' : 'default' }}
+      onClick={toggleCard}
     >
       <img
         className="card__image"

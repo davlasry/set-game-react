@@ -1,20 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Game.scss';
 import { Board } from './components/Board/Board';
-
-//
+import { GameProvider } from './GameProvider';
+import { ScoreBox } from './components/ScoreBox/ScoreBox';
+import { BoardButtons } from './components/BoardButtons/BoardButtons';
+import { PossibleSets } from './components/PossibleSets/PossibleSets';
 
 function Game() {
-  const [calledSet, setCalledSet] = useState(false);
-
-  useEffect(() => {
-    console.log(calledSet);
-  }, [calledSet]);
-
   return (
-    <div className="app">
-      <h1>Set card game</h1>
-      <Board setCalledSet={setCalledSet} calledSet={calledSet} />
+    <div className="game-container">
+      <h1>Set card game!</h1>
+
+      <GameProvider>
+        <div className="top-part">
+          <ScoreBox />
+          <PossibleSets />
+        </div>
+
+        <BoardButtons />
+
+        <Board />
+      </GameProvider>
     </div>
   );
 }

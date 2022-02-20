@@ -1,15 +1,10 @@
 .board__container {
+  flex: 1;
   border: 5px solid black;
   width: auto;
-  height: 700px;
   display: grid;
   grid-template: auto / 1fr 1fr 1fr 1fr;
   grid-gap: 30px;
   padding: 20px;
   background-color: silver;
-}
-
-.board__actions {
-  display: flex;
-  column-gap: 10px;
 }

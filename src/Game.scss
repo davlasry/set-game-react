@@ -1,5 +1,14 @@
-.app {
+.game-container {
   padding: 20px 60px;
   background-color: #4a4ae8;
   height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+
+  .top-part {
+    display: flex;
+    justify-content: space-between;
+  }
 }
