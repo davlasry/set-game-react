@@ -8,24 +8,23 @@ export function PossibleSets() {
   const { possibleSets } = state;
 
   return (
-    <div>
-      <div>Possible Sets</div>
-      <div>
-        {
-          // TODO: create reusable component
-          possibleSets.map((row, index) => {
-            return (
-              <div className="history-row" key={index}>
-                <div className="history-row__cards">
-                  {row.map((card) => (
-                    <BoardCard key={card.id} card={card} />
-                  ))}
-                </div>
+    <div className="history-rows">
+      {!!possibleSets?.length ? (
+        // TODO: create reusable component
+        possibleSets.map((row, index) => {
+          return (
+            <div className="history-row" key={index}>
+              <div className="history-row__cards">
+                {row.map((card) => (
+                  <BoardCard key={card.id} card={card} width={70} />
+                ))}
               </div>
-            );
-          })
-        }
-      </div>
+            </div>
+          );
+        })
+      ) : (
+        <div>No possible Set was found.</div>
+      )}
     </div>
   );
 }

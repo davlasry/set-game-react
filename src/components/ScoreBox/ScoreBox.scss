@@ -4,6 +4,8 @@
 
 .history-row {
   display: flex;
+  padding-bottom: 10px;
+  border-bottom: 2px solid black;
 
   .history-row__cards {
     display: flex;

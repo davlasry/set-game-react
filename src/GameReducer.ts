@@ -2,8 +2,10 @@ import './components/Board/Board.scss';
 import { Card } from './types/card';
 import { getNewCards } from './utils/cardsFactory';
 import { checkIfSet } from './utils/checkIfSet';
-import { getCardsCombinations } from './utils/getCardsCombinations';
 import { getPossibleSets } from './utils/getPossibleSets';
+import { Deck } from './types/deck';
+import { drawCard } from './utils/drawCard';
+import { Board } from './types/board';
 
 type GameState = 'playing' | 'correct' | 'wrong';
 
@@ -16,7 +18,7 @@ type HistoryItem = {
 
 export type State = {
   activeCards: Card[];
-  deck: Card[];
+  deck: Deck;
   board: Card[];
   userCalledSet: boolean;
   history: HistoryItem[];
@@ -54,10 +56,7 @@ export function GameReducer(state: State, action: Action): State {
       const newBoard = newCards.slice(0, 12);
       const newDeck = newCards.slice(12);
 
-      const combinations = getCardsCombinations(newBoard);
-      console.log('combinations ---->', combinations);
-      const possibleSets = getPossibleSets(combinations);
-      console.log('possibleSets ---->', possibleSets);
+      const possibleSets = getPossibleSets(newBoard);
 
       return {
         ...state,
@@ -96,14 +95,39 @@ export function GameReducer(state: State, action: Action): State {
       if (!active && currentActiveCards.length < 3) {
         const newActiveCards = [...currentActiveCards, action.payload.card];
 
+        // Check if set
         if (newActiveCards.length === 3) {
           const isSet = checkIfSet(newActiveCards);
           const { score } = state;
 
+          // New History
           const newHistoryRow: HistoryItem = {
             cards: newActiveCards,
             status: isSet ? 'correct' : 'wrong',
           };
+
+          // TODO: to be refactored - ask for help!
+          let newDeck: Deck = state.deck;
+          let newBoard: Board = state.board;
+
+          if (isSet) {
+            // New Board and Deck
+            const activeCardsIds = newActiveCards.map((card) => card.id);
+
+            newBoard = state.board.map((card) => {
+              if (activeCardsIds.includes(card.id)) {
+                const [updatedDeck, newCard] = drawCard(newDeck);
+                newDeck = updatedDeck;
+                return newCard;
+              }
+
+              return card;
+            }) as Board;
+          }
+
+          const possibleSets = getPossibleSets(newBoard);
+
+          debugger;
 
           return {
             ...state,
@@ -111,6 +135,9 @@ export function GameReducer(state: State, action: Action): State {
             history: [...state.history, newHistoryRow],
             userCalledSet: false,
             score: isSet ? score + 1 : score - 1,
+            board: newBoard,
+            deck: newDeck,
+            possibleSets,
           };
         }
 

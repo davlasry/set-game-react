@@ -5,9 +5,10 @@ import { GameDispatchContext, GameStateContext } from '../../GameProvider';
 
 type CardProps = {
   card: Card;
+  width?: number;
 };
 
-export default function BoardCard({ card }: CardProps) {
+export default function BoardCard({ card, width }: CardProps) {
   const { userCalledSet, activeCards } = useContext(GameStateContext);
   const dispatch = useContext(GameDispatchContext);
 
@@ -24,12 +25,16 @@ export default function BoardCard({ card }: CardProps) {
   return (
     <div
       className={`card ${isActive ? 'card--active' : ' '}`}
-      style={{ cursor: userCalledSet ? 'pointer' : 'default' }}
+      style={{
+        cursor: userCalledSet ? 'pointer' : 'default',
+        width: `${width}px`,
+      }}
       onClick={toggleCard}
     >
       <img
         className="card__image"
         src={`/set-cards-images/${card.id}.png`}
+        // style={{ width: `${width}px` }}
         alt={`card-${card.id}`}
       />
     </div>

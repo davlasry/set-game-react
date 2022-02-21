@@ -10,13 +10,17 @@ export function BoardButtons() {
 
   return (
     <div className="board__actions">
-      <button onClick={() => dispatch({ type: 'startNewGame' })}>
+      <button
+        onClick={() => dispatch({ type: 'startNewGame' })}
+        className="sg-button"
+      >
         New Game
       </button>
 
       <button
         onClick={() => dispatch({ type: 'callSet' })}
         disabled={userCalledSet}
+        className="sg-button"
       >
         Set
       </button>
@@ -24,6 +28,7 @@ export function BoardButtons() {
       <button
         onClick={() => dispatch({ type: 'cancelSet' })}
         disabled={!userCalledSet}
+        className="sg-button"
       >
         Can't find it!
       </button>

@@ -10,13 +10,13 @@ import { CARD_NUMBERS } from '../data/card-numbers';
 import { CardNumber } from '../types/card-number';
 
 export function getNewCards() {
-  const cards = getSingleDeckCards();
+  const cards = getOneDeckCards();
 
   return shuffleDeck(cards);
 }
 
 // TODO: should include CARD_NUMBERS
-function getSingleDeckCards() {
+function getOneDeckCards() {
   return COLORS.reduce((allCombinations: Card[], color: CardColor) => {
     return [
       ...allCombinations,

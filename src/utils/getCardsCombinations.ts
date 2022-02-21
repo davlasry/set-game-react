@@ -7,6 +7,7 @@ export function getCardsCombinations(board: Card[]) {
       .flatMap((w, j) => board.slice(i + 1 + j + 1).map((u) => [v, w, u]))
   );
 
+  // TODO: read choose and see if it is interesting
   const result2 = choose(board, 3);
 
   return result;

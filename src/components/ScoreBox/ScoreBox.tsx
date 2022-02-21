@@ -1,7 +1,7 @@
 import './ScoreBox.scss';
 import React, { useContext } from 'react';
 import { GameStateContext } from '../../GameProvider';
-import { History } from '../History/History';
+import { GameHistory } from '../GameHistory/GameHistory';
 
 export function ScoreBox() {
   const state = useContext(GameStateContext);
@@ -16,7 +16,7 @@ export function ScoreBox() {
 
       <div>State: {gameState}</div>
 
-      <History />
+      <GameHistory />
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { Board } from './components/Board/Board';
 import { GameProvider } from './GameProvider';
 import { ScoreBox } from './components/ScoreBox/ScoreBox';
 import { BoardButtons } from './components/BoardButtons/BoardButtons';
-import { PossibleSets } from './components/PossibleSets/PossibleSets';
+import { PossibleSetsContainer } from './components/PossibleSetsContainer/PossibleSetsContainer';
 
 function Game() {
   return (
@@ -14,12 +14,13 @@ function Game() {
       <GameProvider>
         <div className="top-part">
           <ScoreBox />
-          <PossibleSets />
         </div>
 
         <BoardButtons />
 
         <Board />
+
+        <PossibleSetsContainer />
       </GameProvider>
     </div>
   );
