@@ -3,7 +3,7 @@ import { GameDispatchContext, GameStateContext } from '../../GameProvider';
 import './ActionButtons.scss';
 
 export function ActionButtons() {
-  const { userCalledSet } = useContext(GameStateContext);
+  const { userCalledSet, gameCountdownRunning } = useContext(GameStateContext);
   const dispatch = useContext(GameDispatchContext);
 
   return (
@@ -15,21 +15,39 @@ export function ActionButtons() {
         New Game
       </button>
 
-      <button
-        onClick={() => dispatch({ type: 'callSet' })}
-        disabled={userCalledSet}
-        className="sg-button"
-      >
-        Set
-      </button>
+      {userCalledSet ? (
+        <button
+          onClick={() => dispatch({ type: 'cancelSet' })}
+          disabled={!userCalledSet}
+          className="sg-button cannot-find-btn"
+        >
+          Can't find it!
+        </button>
+      ) : (
+        <button
+          onClick={() => dispatch({ type: 'callSet' })}
+          disabled={userCalledSet || !gameCountdownRunning}
+          className="sg-button set-button"
+        >
+          Set
+        </button>
+      )}
 
-      <button
-        onClick={() => dispatch({ type: 'cancelSet' })}
-        disabled={!userCalledSet}
-        className="sg-button"
-      >
-        Can't find it!
-      </button>
+      {/*<button*/}
+      {/*  onClick={() => dispatch({ type: 'callSet' })}*/}
+      {/*  disabled={userCalledSet || !gameCountdownRunning}*/}
+      {/*  className="sg-button"*/}
+      {/*>*/}
+      {/*  Set*/}
+      {/*</button>*/}
+
+      {/*<button*/}
+      {/*  onClick={() => dispatch({ type: 'cancelSet' })}*/}
+      {/*  disabled={!userCalledSet}*/}
+      {/*  className="sg-button"*/}
+      {/*>*/}
+      {/*  Can't find it!*/}
+      {/*</button>*/}
     </div>
   );
 }

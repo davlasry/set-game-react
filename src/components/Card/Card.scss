@@ -2,11 +2,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 6px solid lightgray;
+  border: 2px solid white;
   cursor: pointer;
   font-size: 12px;
   background-color: white;
-  height: 90px;
+  height: 150px;
+  border-radius: 20px;
+  padding: 5px;
+  box-shadow: 8px 8px 0px -3px rgb(25 19 80);
 
   img.card__image {
     //width: 150px;

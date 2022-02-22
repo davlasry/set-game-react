@@ -1,22 +1,38 @@
-.game-container {
-  padding: 20px 60px;
-  background-color: #353535;
-  height: 100vh;
-  box-sizing: border-box;
+.game-wrapper {
+  background-color: #463d8f;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  padding: 20px 60px;
   overflow: auto;
-  color: white;
 
-  .top-part {
+  .game-container {
+    height: 100vh;
+    box-sizing: border-box;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    color: white;
+    max-width: 600px;
+    width: 100%;
+
+    .top-part {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0 0;
+    }
   }
 }
 
 /* BUTTON */
 .sg-button {
-  background-color: #1899d6;
+  //check if necessary
+  //max-height: 50px;
+
+  background-color: #ffeb00;
   border: solid transparent;
   border-radius: 16px;
   border-width: 0 0 4px;
@@ -24,8 +40,7 @@
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
-  font-family: din-round, sans-serif;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.8px;
   line-height: 20px;
@@ -43,11 +58,13 @@
   vertical-align: middle;
   white-space: nowrap;
   //width: 100%;
+
+  font-family: 'Caveat Brush', cursive;
 }
 
 .sg-button:after {
   background-clip: padding-box;
-  background-color: #1cb0f6;
+  background-color: #ea1c2d;
   border: solid transparent;
   border-radius: 16px;
   border-width: 0 0 4px;

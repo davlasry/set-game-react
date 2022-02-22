@@ -7,12 +7,10 @@ export const Board = () => {
   const state = useContext(GameStateContext);
 
   return (
-    <div className="board__wrapper">
-      <div className="board__container">
-        {[...state.board].map((card) => (
-          <BoardCard key={card.id} card={card} width={120} />
-        ))}
-      </div>
+    <div className="board__container">
+      {[...state.board].map((card) => (
+        <BoardCard key={card.id} card={card} width={110} />
+      ))}
     </div>
   );
 };

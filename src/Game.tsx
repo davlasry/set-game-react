@@ -5,21 +5,27 @@ import { GameProvider } from './GameProvider';
 import { ScoreBox } from './components/ScoreBox/ScoreBox';
 import { ActionButtons } from './components/ActionButtons/ActionButtons';
 import { PossibleSetsContainer } from './components/PossibleSetsContainer/PossibleSetsContainer';
+import { Score } from './components/Score/Score';
 
 function Game() {
   return (
-    <div className="game-container">
-      <GameProvider>
-        <div className="top-part">
-          <ScoreBox />
-        </div>
+    <div className="game-wrapper">
+      <div className="game-container">
+        <GameProvider>
+          <div className="top-part">
+            <ScoreBox />
+          </div>
 
-        <ActionButtons />
+          <div className="top-bar">
+            <ActionButtons />
+            <Score />
+          </div>
 
-        <Board />
+          <Board />
 
-        <PossibleSetsContainer />
-      </GameProvider>
+          <PossibleSetsContainer />
+        </GameProvider>
+      </div>
     </div>
   );
 }

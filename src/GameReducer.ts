@@ -50,6 +50,7 @@ type Action =
   | { type: 'invalidateSet' }
   | { type: 'toggleCard'; payload: { card: Card } }
   | { type: 'callSet' }
+  | { type: 'timeIsOut' }
   | { type: 'cancelSet' };
 
 export function GameReducer(state: State, action: Action): State {
@@ -69,6 +70,7 @@ export function GameReducer(state: State, action: Action): State {
         score: 0,
         history: [],
         possibleSets,
+        gameCountdownRunning: true,
       };
     }
     case 'invalidateSet': {
@@ -113,6 +115,7 @@ export function GameReducer(state: State, action: Action): State {
           let newDeck: Deck = state.deck;
           let newBoard: Board = state.board;
 
+          // If is SET
           if (isSet) {
             // New Board and Deck
             const activeCardsIds = newActiveCards.map((card) => card.id);
@@ -130,8 +133,6 @@ export function GameReducer(state: State, action: Action): State {
 
           const possibleSets = getPossibleSets(newBoard);
 
-          debugger;
-
           return {
             ...state,
             activeCards: [],
@@ -141,6 +142,7 @@ export function GameReducer(state: State, action: Action): State {
             board: newBoard,
             deck: newDeck,
             possibleSets,
+            gameCountdownRunning: isSet,
           };
         }
 
@@ -165,6 +167,11 @@ export function GameReducer(state: State, action: Action): State {
         activeCards: [],
         score: state.score - 1,
         gameCountdownRunning: true,
+      };
+    case 'timeIsOut':
+      return {
+        ...state,
+        gameCountdownRunning: false,
       };
     default:
       throw new Error();

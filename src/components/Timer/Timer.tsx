@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { GameStateContext } from '../../GameProvider';
+import { GameDispatchContext, GameStateContext } from '../../GameProvider';
 
 type Props = {
   seconds?: number;
@@ -7,6 +7,7 @@ type Props = {
 
 export function Timer({ seconds }: Props) {
   const [timeLeft, setTimeLeft] = useState(seconds || 5);
+  const dispatch = useContext(GameDispatchContext);
 
   const { gameCountdownRunning: isRunning } = useContext(GameStateContext);
 
@@ -16,9 +17,17 @@ export function Timer({ seconds }: Props) {
     const interval = setInterval(() => {
       if (!isRunning) return;
 
-      if (timeLeft === 0) return;
+      if (timeLeft === 0) {
+        return;
+      }
 
-      setTimeLeft((seconds) => seconds - 1);
+      if (timeLeft === 1) {
+        dispatch({ type: 'timeIsOut' });
+      }
+
+      setTimeLeft((seconds) => {
+        return seconds - 1;
+      });
     }, 1000);
 
     return () => {

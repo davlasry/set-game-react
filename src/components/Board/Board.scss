@@ -1,17 +1,10 @@
 .board__container {
-  flex: 1;
-  border: 5px solid black;
   width: auto;
   display: grid;
-  grid-template: auto / 1fr 1fr 1fr 1fr;
+  //grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 124px);
+  grid-template-rows: repeat(3, 164px);
   grid-row-gap: 30px;
-  padding: 20px;
-  background-color: silver;
-  max-width: 800px;
-}
-
-.board__wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 50px 0;
+  justify-content: space-between;
 }

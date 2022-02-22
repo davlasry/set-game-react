@@ -1,5 +1,23 @@
 .board__actions {
   display: flex;
   column-gap: 10px;
-  margin: 20px 0;
+}
+
+.cannot-find-btn,
+.set-button {
+  font-size: 50px;
+  width: 400px;
+  height: 100px;
+}
+
+.set-button {
+  &:after {
+    background-color: #13a750;
+  }
+}
+
+.cannot-find-btn {
+  &:after {
+    background-color: #8e8e8e;
+  }
 }

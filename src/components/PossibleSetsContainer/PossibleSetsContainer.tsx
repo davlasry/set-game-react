@@ -17,13 +17,9 @@ export function PossibleSetsContainer() {
 
   return (
     <div className="possible-sets__container">
-      <div className="possible-sets__header">
-        Possible Sets ({possibleSets?.length || 0})
-      </div>
-
       <button
         onClick={() => setShowSets((show) => !show)}
-        className="sg-button"
+        className="sg-button show-sets-btn"
       >
         {showSets ? 'Hide Sets' : 'Show Sets'}
       </button>

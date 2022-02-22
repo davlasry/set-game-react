@@ -3,3 +3,11 @@
   flex-direction: column;
   align-items: flex-end;
 }
+
+.show-sets-btn {
+  &:after {
+    background-color: #252050;
+  }
+
+  //#252050
+}
