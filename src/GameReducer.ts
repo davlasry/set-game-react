@@ -25,6 +25,8 @@ export type State = {
   score: number;
   gameState: GameState;
   possibleSets: Card[][];
+  gameCountdownRunning: boolean;
+  answerCountdownRunning: boolean;
 };
 
 export const initialState: State = {
@@ -36,11 +38,12 @@ export const initialState: State = {
   score: 0,
   gameState: 'playing',
   possibleSets: [],
+  gameCountdownRunning: true,
+  answerCountdownRunning: true,
 };
 
 type Action =
   | { type: 'startNewGame' }
-  | { type: 'setClick' }
   | { type: 'dealNewBoard' }
   | { type: 'addCardsToBoard'; payload: { cards: Card[] } }
   | { type: 'validateSet'; payload: { card: Card } }
@@ -153,6 +156,7 @@ export function GameReducer(state: State, action: Action): State {
       return {
         ...state,
         userCalledSet: true,
+        gameCountdownRunning: false,
       };
     case 'cancelSet':
       return {
@@ -160,6 +164,7 @@ export function GameReducer(state: State, action: Action): State {
         userCalledSet: false,
         activeCards: [],
         score: state.score - 1,
+        gameCountdownRunning: true,
       };
     default:
       throw new Error();

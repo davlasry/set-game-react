@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
 import { GameDispatchContext, GameStateContext } from '../../GameProvider';
-import './BoardButtons.scss';
+import './ActionButtons.scss';
 
-export function BoardButtons() {
-  const state = useContext(GameStateContext);
+export function ActionButtons() {
+  const { userCalledSet } = useContext(GameStateContext);
   const dispatch = useContext(GameDispatchContext);
-
-  const { userCalledSet } = state;
 
   return (
     <div className="board__actions">

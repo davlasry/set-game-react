@@ -10,7 +10,6 @@ export function PossibleSetsContainer() {
   const [showSets, setShowSets] = useState<boolean>(false);
 
   useEffect(() => {
-    console.log('possibleSets ---->', possibleSets);
     if (!possibleSets.length) {
       setShowSets(false);
     }

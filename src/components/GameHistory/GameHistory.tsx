@@ -2,9 +2,7 @@ import React, { useContext } from 'react';
 import { GameStateContext } from '../../GameProvider';
 
 export function GameHistory() {
-  const state = useContext(GameStateContext);
-
-  const { history } = state;
+  const { history } = useContext(GameStateContext);
 
   return (
     <div>
