@@ -1,9 +1,7 @@
-import React, { useContext } from 'react';
-import { GameStateContext } from '../../GameProvider';
+import React from 'react';
+import { observer } from 'mobx-react-lite';
 
-export function GameHistory() {
-  const { history } = useContext(GameStateContext);
-
+function GameHistory() {
   return (
     <div>
       <div>History</div>
@@ -28,3 +26,5 @@ export function GameHistory() {
     </div>
   );
 }
+
+export default observer(GameHistory);

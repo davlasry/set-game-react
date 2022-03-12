@@ -1,11 +1,12 @@
 import './PossibleSetsContainer.scss';
 import React, { useContext, useEffect, useState } from 'react';
-import { GameStateContext } from '../../GameProvider';
 import { PossibleSets } from '../PossibleSets/PossibleSets';
+import { observer } from 'mobx-react-lite';
+import { GameStoreContext } from '../../stores/gameStoreContext';
 
-export function PossibleSetsContainer() {
-  const state = useContext(GameStateContext);
-  const { possibleSets } = state;
+export const PossibleSetsContainer = observer(() => {
+  const gameStore = useContext(GameStoreContext);
+  const { possibleSets } = gameStore;
 
   const [showSets, setShowSets] = useState<boolean>(false);
 
@@ -27,4 +28,4 @@ export function PossibleSetsContainer() {
       {showSets ? <PossibleSets /> : ''}
     </div>
   );
-}
+});

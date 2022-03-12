@@ -1,7 +1,14 @@
-.score-container {
+.score {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 50px;
-  font-weight: 600;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  .score__label {
+  }
+
+  .score__value {
+    font-size: 50px;
+    font-weight: 600;
+  }
 }

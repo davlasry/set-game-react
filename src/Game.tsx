@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import './Game.scss';
-import { Board } from './components/Board/Board';
-import { GameProvider } from './GameProvider';
 import { ScoreBox } from './components/ScoreBox/ScoreBox';
-import { ActionButtons } from './components/ActionButtons/ActionButtons';
 import { PossibleSetsContainer } from './components/PossibleSetsContainer/PossibleSetsContainer';
 import { Score } from './components/Score/Score';
+import { Board } from './components/Board/Board';
+import { ActionButtons } from './components/ActionButtons/ActionButtons';
+import { observer } from 'mobx-react-lite';
+import { GameStoreContext } from './stores/gameStoreContext';
 
-function Game() {
+export const Game = observer(() => {
+  const gameStore = useContext(GameStoreContext);
+
+  useEffect(() => {
+    gameStore.startNewGame();
+  }, []);
+
   return (
     <div className="game-wrapper">
       <div className="game-container">
-        <GameProvider>
+        <GameStoreContext.Provider value={gameStore}>
           <div className="top-part">
             <ScoreBox />
           </div>
@@ -24,10 +31,8 @@ function Game() {
           <Board />
 
           <PossibleSetsContainer />
-        </GameProvider>
+        </GameStoreContext.Provider>
       </div>
     </div>
   );
-}
-
-export default Game;
+});

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { GameDispatchContext, GameStateContext } from '../../GameProvider';
+import { GameStoreContext } from '../../stores/gameStoreContext';
 
 type Props = {
   seconds?: number;
@@ -7,9 +7,10 @@ type Props = {
 
 export function Timer({ seconds }: Props) {
   const [timeLeft, setTimeLeft] = useState(seconds || 5);
-  const dispatch = useContext(GameDispatchContext);
 
-  const { gameCountdownRunning: isRunning } = useContext(GameStateContext);
+  const gameStore = useContext(GameStoreContext);
+
+  const { gameCountdownRunning: isRunning, timeIsOut } = gameStore;
 
   useEffect(() => {
     // is creating a new interval every time
@@ -22,7 +23,7 @@ export function Timer({ seconds }: Props) {
       }
 
       if (timeLeft === 1) {
-        dispatch({ type: 'timeIsOut' });
+        timeIsOut();
       }
 
       setTimeLeft((seconds) => {

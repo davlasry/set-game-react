@@ -1,4 +1,6 @@
 .game-wrapper {
+  //min-height: 100%;
+  height: 100vh;
   background-color: #463d8f;
   display: flex;
   justify-content: center;
@@ -6,7 +8,6 @@
   overflow: auto;
 
   .game-container {
-    height: 100vh;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -29,9 +30,6 @@
 
 /* BUTTON */
 .sg-button {
-  //check if necessary
-  //max-height: 50px;
-
   background-color: #ffeb00;
   border: solid transparent;
   border-radius: 16px;

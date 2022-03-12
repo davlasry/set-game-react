@@ -1,9 +1,15 @@
 import './Score.scss';
 import React, { useContext } from 'react';
-import { GameStateContext } from '../../GameProvider';
+import { observer } from 'mobx-react-lite';
+import { GameStoreContext } from '../../stores/gameStoreContext';
 
-export function Score() {
-  const { score } = useContext(GameStateContext);
+export const Score = observer(() => {
+  const gameStore = useContext(GameStoreContext);
 
-  return <div className="score-container">{score}</div>;
-}
+  return (
+    <div className="score">
+      <div className="score__label">Score</div>
+      <div className="score__value">{gameStore.score}</div>
+    </div>
+  );
+});

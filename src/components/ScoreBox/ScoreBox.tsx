@@ -1,11 +1,10 @@
 import './ScoreBox.scss';
-import React, { useContext } from 'react';
-import { GameStateContext } from '../../GameProvider';
+import React from 'react';
 
 export function ScoreBox() {
-  const state = useContext(GameStateContext);
+  // const state = useContext(GameStateContext);
 
-  const { deck, score, gameState } = state;
+  // const { deck, score, gameState } = state;
 
   return (
     <div className="score-box">

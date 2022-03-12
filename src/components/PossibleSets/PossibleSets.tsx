@@ -1,14 +1,16 @@
 import './PossibleSets.scss';
 import React, { useContext } from 'react';
-import { GameStateContext } from '../../GameProvider';
-import BoardCard from '../Card/Card';
+import { BoardCard } from '../Card/Card';
+import { observer } from 'mobx-react-lite';
+import { GameStoreContext } from '../../stores/gameStoreContext';
 
-export function PossibleSets() {
-  const state = useContext(GameStateContext);
-  const { possibleSets } = state;
+export const PossibleSets = observer(() => {
+  const gameStore = useContext(GameStoreContext);
+  const { possibleSets } = gameStore;
 
   return (
     <div className="history-rows">
+      <div>{possibleSets?.length}</div>
       {!!possibleSets?.length ? (
         // TODO: create reusable component
         possibleSets.map((row, index) => {
@@ -27,4 +29,4 @@ export function PossibleSets() {
       )}
     </div>
   );
-}
+});

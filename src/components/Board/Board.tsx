@@ -1,16 +1,18 @@
 import React, { useContext } from 'react';
 import './Board.scss';
-import { GameStateContext } from '../../GameProvider';
-import BoardCard from '../Card/Card';
+import { BoardCard } from '../Card/Card';
+import { GameStoreContext } from '../../stores/gameStoreContext';
+import { observer } from 'mobx-react-lite';
 
-export const Board = () => {
-  const state = useContext(GameStateContext);
+export const Board = observer(() => {
+  const gameStore = useContext(GameStoreContext);
+  const { board } = gameStore;
 
   return (
     <div className="board__container">
-      {[...state.board].map((card) => (
+      {board.map((card) => (
         <BoardCard key={card.id} card={card} width={110} />
       ))}
     </div>
   );
-};
+});

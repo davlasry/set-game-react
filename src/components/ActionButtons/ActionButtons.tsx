@@ -1,23 +1,21 @@
 import React, { useContext } from 'react';
-import { GameDispatchContext, GameStateContext } from '../../GameProvider';
 import './ActionButtons.scss';
+import { GameStoreContext } from '../../stores/gameStoreContext';
+import { observer } from 'mobx-react-lite';
 
-export function ActionButtons() {
-  const { userCalledSet, gameCountdownRunning } = useContext(GameStateContext);
-  const dispatch = useContext(GameDispatchContext);
+export const ActionButtons = observer(() => {
+  const gameStore = useContext(GameStoreContext);
+  const { userCalledSet, callSet, cancelSet, startNewGame } = gameStore;
 
   return (
     <div className="board__actions">
-      <button
-        onClick={() => dispatch({ type: 'startNewGame' })}
-        className="sg-button"
-      >
+      <button onClick={() => startNewGame()} className="sg-button">
         New Game
       </button>
 
       {userCalledSet ? (
         <button
-          onClick={() => dispatch({ type: 'cancelSet' })}
+          onClick={() => cancelSet()}
           disabled={!userCalledSet}
           className="sg-button cannot-find-btn"
         >
@@ -25,29 +23,13 @@ export function ActionButtons() {
         </button>
       ) : (
         <button
-          onClick={() => dispatch({ type: 'callSet' })}
-          disabled={userCalledSet || !gameCountdownRunning}
+          onClick={() => callSet()}
+          disabled={userCalledSet}
           className="sg-button set-button"
         >
-          Set
+          Set!
         </button>
       )}
-
-      {/*<button*/}
-      {/*  onClick={() => dispatch({ type: 'callSet' })}*/}
-      {/*  disabled={userCalledSet || !gameCountdownRunning}*/}
-      {/*  className="sg-button"*/}
-      {/*>*/}
-      {/*  Set*/}
-      {/*</button>*/}
-
-      {/*<button*/}
-      {/*  onClick={() => dispatch({ type: 'cancelSet' })}*/}
-      {/*  disabled={!userCalledSet}*/}
-      {/*  className="sg-button"*/}
-      {/*>*/}
-      {/*  Can't find it!*/}
-      {/*</button>*/}
     </div>
   );
-}
+});
